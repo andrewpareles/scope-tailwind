@@ -26,7 +26,8 @@ function MyComponent() {
 
 
 ## Using Scope-Tailwind
-Simply run `scope-tailwind` in the terminal to scope your jsx/tsx files. The source directory is the only required parameter. Here are all the options:
+
+To use Scope-Tailwind, run `scope-tailwind` in the terminal. The source directory is the only required parameter. Here are all the options:
 
 ```bash
 scope-tailwind ./src    # (required) the source folder with jsx/tsx files to scopify
