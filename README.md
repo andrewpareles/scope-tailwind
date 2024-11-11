@@ -44,7 +44,6 @@ The prefix specified in scope-tailwind must agree with the prefix in `tailwind.c
 ## Caveats
 
 We only add prefixes to strings *inside* className, not outside.
-
 For example, this works with scope-tailwind:
 ```tsx
 <div className={isHidden ? 'hidden' : `my-2 ${isFlex ? 'flex gap-2' : 'block'}`}>
