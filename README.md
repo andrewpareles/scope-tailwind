@@ -48,7 +48,7 @@ We add a prefix to all the raw strings that are found inside className.
 For example, this works:
 ```tsx
 function MyComponent() {
-    // This complex logic works with scopify-tailwind!
+    // This works with scopify-tailwind!
     let isHidden = useState(false)
     let isFlex = useState(false)
     return <div className={isHidden ? 'hidden' : `${isFlex ? 'flex' : 'block'}`}>
