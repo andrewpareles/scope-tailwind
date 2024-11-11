@@ -2,10 +2,11 @@
   "name": "scopify-tailwind",
   "version": "1.0.0",
   "description": "Use scopify-tailwind to ensure none of your tailwind styles leak out of your tailwind classNames.",
-  "main": "index.js",
+  "main": "dist/main.js",
   "scripts": {
     "build": "rimraf ./dist && tsc",
-    "refreshlink": "npm unlink -g scopify-tailwind && npm link"
+    "refreshlink": "npm unlink -g scopify-tailwind && npm link",
+    "prepublishOnly": "npm run build"
   },
   "bin": {
     "scopify-tailwind": "./dist/main.js"
@@ -33,7 +34,6 @@
     "@types/babel__core": "^7.20.5",
     "@types/node": "^22.9.0",
     "rimraf": "^6.0.1",
-    "tsc": "^2.0.4",
     "typescript": "^5.6.3"
   }
 }

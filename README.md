@@ -5,54 +5,63 @@ This project allows you to apply Tailwind styles to a subset of files without ha
 
 Simply run `scopify-tailwind` and we'll convert files like this:
 
-```
-let MyComponent = () => {
+```tsx
+function MyComponent() {
     return <div className='my-5 py-5 mt-2 bg-red-500'>
-        Hello World!
+       Hello World!
     </div>
 }
 ```
+
 Into files like this:
-```
-let MyComponent = () => {
+
+```tsx
+function MyComponent() {
+    // prefixes:
     return <div className='prefix-my-5 prefix-py-5 prefix-mt-2 prefix-bg-red-500'>
         Hello World!
     </div>
 }
 ```
 
+We prefix and scope your CSS files so there are no CSS leaks from Tailwind. You can even use preflight without causing any style leaks. 
+
 
 ## Using Scopify-Tailwind
-To run the tool, run `scopify-tailwind` in the terminal. The source file is the only required parameter. Here are all the options:
+Run `scopify-tailwind` in the terminal to prefix/scope your jsx/tsx files. The source directory is the only required parameter. Here are all the options:
 
-```
+```bash
 scopify-tailwind ./src  # (required) the source folder with jsx/tsx files to scopify 
+-o ./src2               # the output directory that will be created
 -p "prefix-"            # prefix to use (this prevents styles from leaking out)
--g "@@"                 # if a class starts with this, it won't be prefixed. For example, "@@myclass" will be converted to "myclass", not "prefix-myclass"
--o ./src2               # name of the output folder that will be created
--s ""                   # If this is included, styles will only work inside an HTMLElement with this className. Defaults to nothing. 
+-s "scope"              # styles will only apply in an HTMLElement with this className. This prevents Tailwind's global styles from leaking out
+-g "@@"                 # if a class starts with this, it won't be prefixed. For example, "@@myclass" will be converted to "myclass" instead of "prefix-myclass"
 ```
+
+Styles are "scoped" to an element by default so that global Tailwind styles don't leak. This means you need an element with the class "scope" in order for the styles to apply. Or, you can just disable scoping by adding the flag `-s ""`. 
+
 
 
 ## Caveats
-We add a prefix to all raw strings found *inside* className. 
+We add a prefix to all the raw strings that are found inside className. 
 
 For example, this works:
-```
-let MyComponent = () => {
-    // This works!
+```tsx
+function MyComponent() {
+    // This complex logic works with scopify-tailwind!
     let isHidden = useState(false)
-    return <div className={isHidden ? 'hidden' : 'block'}>
+    let isFlex = useState(false)
+    return <div className={isHidden ? 'hidden' : `${isFlex ? 'flex' : 'block'}`}>
         Hello World!
     </div>
 }
 ```
 
-But the following WILL NOT work:
+But the following WILL NOT work (no prefixes will be added):
 
-```
-let MyComponent = () => {
-    // This does not work! The string is not inside className.
+```tsx
+function MyComponent() {
+    // However, these styles will not be detected!
     const myClass = 'my-5 py-5 mt-2 bg-red-500'
     return <div className={myClass}>
         Hello World!
@@ -60,7 +69,7 @@ let MyComponent = () => {
 }
 ```
 
-We don't have much logic for our classNames, so this works for us.
+We typically don't have complex className logic in our projects, and can fit everything into `className=` tags, so this works for us.
 
 
 ## Details
@@ -68,7 +77,7 @@ We don't have much logic for our classNames, so this works for us.
 Here's what goes on behind the scenes.
 
 1. First, we prefixify:
-```
+```raw
 src                                                src2
 className="h-3 my-2 @@myclass"       -->           className="prefix-h-3 prefix-my-2 myclass"
 ```
@@ -76,7 +85,7 @@ className="h-3 my-2 @@myclass"       -->           className="prefix-h-3 prefix-
 
 
 2. Then, we scopify:
-```
+```raw
 src2/styles.css                   src2/styles.css                     src2/styles.css
 @tailwind base      -->           .h-3 { }              -->           .prefix-h-3 { }
 ```
