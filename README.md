@@ -1,7 +1,7 @@
 
 # Scope-Tailwind
 
-This project allows you to apply Tailwind styles to a subset of files without having style leaks.
+This project allows you to prefix and scope your CSS files so there are no style leaks from Tailwind's CSS files. You can even use preflight without causing any style leaks. 
 
 Simply run `scope-tailwind` and we'll convert files like this:
 
@@ -23,7 +23,6 @@ function MyComponent() {
 }
 ```
 
-We prefix and scope your CSS files so there are no CSS leaks from Tailwind. You can even use preflight without causing any style leaks. 
 
 
 ## Using Scope-Tailwind
@@ -38,9 +37,9 @@ scope-tailwind ./src  # (required) the source folder with jsx/tsx files to scopi
 ```
 
 
-Styles are "scoped" to an element by default so that global Tailwind styles don't leak out. This means you need an element with the class "scope" in order for the styles to apply. Or, you can just disable scoping by adding the flag `-s ""`. 
+Styles are "scoped" to an element by default so that global Tailwind styles don't leak out. You can disable scoping by adding the flag `-s ""`. If you don't disable it, you must create an element with the className "scope" in order for your styles to appear. 
 
-The prefix specified must agree with the prefix field in your `tailwind.config.js` file. (`tailwind.config.js` is the only file you need for scope-tailwind to work).
+The prefix specified in scope-tailwind must agree with the prefix in `tailwind.config.js`.
 
 ## Caveats
 We add a prefix to all the raw strings that are found inside className, so everything needs to happen inside className tags.
