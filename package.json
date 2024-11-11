@@ -9,7 +9,8 @@
   "scripts": {
     "build": "rimraf ./dist && node ./build.js",
     "refreshlink": "npm unlink -g scope-tailwind && npm link",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "postpublish": "npm unlink scope-tailwind && npm uninstall -g scope-tailwind"
   },
   "bin": {
     "scope-tailwind": "./dist/main.js"
