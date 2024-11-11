@@ -1,7 +1,7 @@
 
 # Scope-Tailwind
 
-This project allows you to prefix and scope your CSS files so there are no style leaks from Tailwind's CSS files. You can even use preflight without causing any style leaks. 
+This project allows you to prefix and scope your CSS files so there are no style leaks from Tailwind's CSS files. You can even use preflight without causing global style leaks. 
 
 Simply run `scope-tailwind` and we'll convert files like this:
 
