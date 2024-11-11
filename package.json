@@ -4,7 +4,7 @@
   "description": "Use scopify-tailwind to ensure none of your tailwind styles leak out of your tailwind classNames.",
   "main": "dist/main.js",
   "scripts": {
-    "build": "rimraf ./dist && tsc",
+    "build": "rimraf ./dist && node ./build.js",
     "refreshlink": "npm unlink -g scopify-tailwind && npm link",
     "prepublishOnly": "npm run build"
   },
@@ -24,6 +24,7 @@
   "license": "AGPL-3.0-only",
   "dependencies": {
     "@babel/core": "^7.26.0",
+    "@babel/preset-typescript": "^7.26.0",
     "@babel/types": "^7.26.0",
     "autoprefixer": "^10.4.20",
     "commander": "^12.1.0",
@@ -33,6 +34,7 @@
   "devDependencies": {
     "@types/babel__core": "^7.20.5",
     "@types/node": "^22.9.0",
+    "esbuild": "^0.24.0",
     "rimraf": "^6.0.1",
     "typescript": "^5.6.3"
   }

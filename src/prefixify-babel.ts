@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { PluginObj, NodePath, transformFileSync } from "@babel/core";
+import { PluginObj, transformFileSync } from "@babel/core";
 import * as t from "@babel/types";
 
 
