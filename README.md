@@ -42,11 +42,12 @@ Styles are "scoped" to an element by default so that global Tailwind styles don'
 The prefix specified in scope-tailwind must agree with the prefix in `tailwind.config.js`.
 
 ## Caveats
-We add a prefix to all the raw strings that are found inside className, so everything needs to happen inside className tags.
+
+We only add prefixes to strings *inside* className, not outside.
 
 For example, this works with scope-tailwind:
 ```tsx
-<div className={isHidden ? 'hidden' : `${isFlex ? 'flex' : 'block'}`}>
+<div className={isHidden ? 'hidden' : `my-2 ${isFlex ? 'flex gap-2' : 'block'}`}>
 ```
 
 But the following WILL NOT work:
@@ -56,7 +57,7 @@ const the_styles_to_add = 'my-5 py-5 mt-2 bg-red-500'
 <div className={the_styles_to_add}>
 ```
 
-We typically don't have complex className logic in our projects, and can fit everything into `className=` tags, so this works for us.
+We typically don't have complex className logic in our projects, and can fit everything into `className=` tags, so this is not a pain for us. If you have complex className logic, scope-tailwind is not a good fit.
 
 
 ## Details
