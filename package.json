@@ -1,6 +1,6 @@
 {
   "name": "scopify-tailwind",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Use scopify-tailwind to ensure none of your tailwind styles leak out of your tailwind classNames.",
   "main": "dist/main.js",
   "scripts": {
@@ -18,7 +18,8 @@
     "tailwindcss",
     "tailwind",
     "scope",
-    "react"
+    "react",
+    "css"
   ],
   "author": "Andrew Pareles",
   "license": "AGPL-3.0-only",
