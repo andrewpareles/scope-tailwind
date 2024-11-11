@@ -7,8 +7,8 @@ Simply run `scopify-tailwind` and we'll convert files like this:
 
 ```tsx
 function MyComponent() {
-    return <div className='my-5 py-5 mt-2 bg-red-500'>
-       Hello World!
+    return <div className='my-5 mt-2 bg-red-500'>
+       Hello
     </div>
 }
 ```
@@ -17,9 +17,8 @@ Into files like this:
 
 ```tsx
 function MyComponent() {
-    // prefixes:
-    return <div className='prefix-my-5 prefix-py-5 prefix-mt-2 prefix-bg-red-500'>
-        Hello World!
+    return <div className='prefix-my-5 prefix-mt-2 prefix-bg-red-500'>
+        Hello
     </div>
 }
 ```
@@ -43,28 +42,24 @@ Styles are "scoped" to an element by default so that global Tailwind styles don'
 
 
 ## Caveats
-We add a prefix to all the raw strings that are found inside className. 
+We add a prefix to all the raw strings that are found inside className, so everything needs to happen inside className tags.
 
-For example, this works:
+For example, this works with scopify-tailwind:
 ```tsx
 function MyComponent() {
-    // This works with scopify-tailwind!
-    let isHidden = useState(false)
-    let isFlex = useState(false)
     return <div className={isHidden ? 'hidden' : `${isFlex ? 'flex' : 'block'}`}>
-        Hello World!
+        Hello
     </div>
 }
 ```
 
-But the following WILL NOT work (no prefixes will be added):
+But the following WILL NOT work:
 
 ```tsx
 function MyComponent() {
-    // However, these styles will not be detected!
-    const myClass = 'my-5 py-5 mt-2 bg-red-500'
-    return <div className={myClass}>
-        Hello World!
+    const the_styles_to_add = 'my-5 py-5 mt-2 bg-red-500'
+    return <div className={the_styles_to_add}>
+        Hello
     </div>
 }
 ```
