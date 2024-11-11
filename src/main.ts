@@ -14,7 +14,7 @@ async function main() {
 
     program
         .name('scopify-tailwind')
-        .argument('<src>', 'Source directory containing React/TSX files', './src')
+        .argument('<src>', 'Source directory containing React/TSX files')
         .option('-n, --src2 <src2>', 'Name of intermediary folder that will be created', './src2')
         .option('-c, --css <css>', 'Path to CSS file relative to src2 folder, e.g. styles.css', 'styles.css')
         .option('-p, --prefix <prefix>', 'The tailwind prefix to add e.g. "glasstw-"', 'glasstw-')
