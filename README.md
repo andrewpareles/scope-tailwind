@@ -43,10 +43,9 @@ scope-tailwind ./src    # (required) the source folder with jsx/tsx files to sco
                         # example, "@@myclass" will become "myclass", not "prefix-myclass"
 ```
 
-
 You can disable scoping by adding the flag `-s ""`. If you don't disable it, you must create an element with the className "scope" (or whatever is in `-s`) in order for your styles to appear. 
 
-The prefix you specify here must agree with the prefix in `tailwind.config.js`.
+The prefix you specify in this command must agree with the prefix in `tailwind.config.js`.
 
 ## Caveats
 
