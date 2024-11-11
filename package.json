@@ -1,6 +1,6 @@
 {
   "name": "scope-tailwind",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Use scope-tailwind to ensure none of your styles leak out from Tailwind.",
   "main": "dist/main.js",
   "publishConfig": {
