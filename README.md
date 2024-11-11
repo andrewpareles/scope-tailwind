@@ -26,20 +26,26 @@ function MyComponent() {
 
 
 ## Using Scope-Tailwind
-Run `scope-tailwind` in the terminal to prefix/scope your jsx/tsx files. The source directory is the only required parameter. Here are all the options:
+Simply run `scope-tailwind` in the terminal to scope your jsx/tsx files. The source directory is the only required parameter. Here are all the options:
 
 ```bash
-scope-tailwind ./src  # (required) the source folder with jsx/tsx files to scopify
+scope-tailwind ./src    # (required) the source folder with jsx/tsx files to scopify
+
 -o ./src2               # the output directory that will be created
+
 -p "prefix-"            # prefix to use (this prevents styles from leaking out)
--s "scope"              # styles will only apply in an HTMLElement with this className. This prevents Tailwind's global styles from leaking out
--g "@@"                 # if a class starts with this, it won't be prefixed. For example, "@@myclass" will be converted to "myclass" instead of "prefix-myclass"
+
+-s "scope"              # your styles will only apply if they're in an element with this 
+                        # className. This prevents Tailwind's global styles from leaking out
+
+-g "@@"                 # if a className starts with this string, it won't be prefixed. For 
+                        # example, "@@myclass" will become to "myclass", not "prefix-myclass"
 ```
 
 
-Styles are "scoped" to an element by default so that global Tailwind styles don't leak out. You can disable scoping by adding the flag `-s ""`. If you don't disable it, you must create an element with the className "scope" in order for your styles to appear. 
+You can disable scoping by adding the flag `-s ""`. If you don't disable it, you must create an element with the className "scope" in order for your styles to appear. 
 
-The prefix specified in scope-tailwind must agree with the prefix in `tailwind.config.js`.
+The prefix you specify here must agree with the prefix in `tailwind.config.js`.
 
 ## Caveats
 
