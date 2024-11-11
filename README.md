@@ -1,9 +1,9 @@
 
-# Scopify-Tailwind
+# Scope-Tailwind
 
 This project allows you to apply Tailwind styles to a subset of files without having style leaks.
 
-Simply run `scopify-tailwind` and we'll convert files like this:
+Simply run `scope-tailwind` and we'll convert files like this:
 
 ```tsx
 function MyComponent() {
@@ -26,11 +26,11 @@ function MyComponent() {
 We prefix and scope your CSS files so there are no CSS leaks from Tailwind. You can even use preflight without causing any style leaks. 
 
 
-## Using Scopify-Tailwind
-Run `scopify-tailwind` in the terminal to prefix/scope your jsx/tsx files. The source directory is the only required parameter. Here are all the options:
+## Using Scope-Tailwind
+Run `scope-tailwind` in the terminal to prefix/scope your jsx/tsx files. The source directory is the only required parameter. Here are all the options:
 
 ```bash
-scopify-tailwind ./src  # (required) the source folder with jsx/tsx files to scopify 
+scope-tailwind ./src  # (required) the source folder with jsx/tsx files to scopify
 -o ./src2               # the output directory that will be created
 -p "prefix-"            # prefix to use (this prevents styles from leaking out)
 -s "scope"              # styles will only apply in an HTMLElement with this className. This prevents Tailwind's global styles from leaking out
@@ -44,7 +44,7 @@ Styles are "scoped" to an element by default so that global Tailwind styles don'
 ## Caveats
 We add a prefix to all the raw strings that are found inside className, so everything needs to happen inside className tags.
 
-For example, this works with scopify-tailwind:
+For example, this works with scope-tailwind:
 ```tsx
 <div className={isHidden ? 'hidden' : `${isFlex ? 'flex' : 'block'}`}>
 ```

@@ -1,22 +1,22 @@
 {
-  "name": "@voideditor/scopify-tailwind",
+  "name": "scope-tailwind",
   "version": "1.0.0",
-  "description": "Use scopify-tailwind to ensure none of your tailwind styles leak out of your tailwind classNames.",
+  "description": "Use scope-tailwind to ensure none of your styles leak out from Tailwind.",
   "main": "dist/main.js",
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "build": "rimraf ./dist && node ./build.js",
-    "refreshlink": "npm unlink -g scopify-tailwind && npm link",
+    "refreshlink": "npm unlink -g scope-tailwind && npm link",
     "prepublishOnly": "npm run build"
   },
   "bin": {
-    "scopify-tailwind": "./dist/main.js"
+    "scope-tailwind": "./dist/main.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/voideditor/scopify-tailwind.git"
+    "url": "https://github.com/voideditor/scope-tailwind.git"
   },
   "files": [
     "dist"

@@ -13,7 +13,7 @@ async function main() {
     const program = new Command();
 
     program
-        .name('scopify-tailwind')
+        .name('scope-tailwind')
         .argument('<src>', 'The source directory containing React/tsx files')
         .option('-o, --src2 <src2>', 'Name of output folder that will be created', './src2')
         .option('-c, --css <css>', 'Path to CSS file relative to src2 folder, e.g. styles.css', 'styles.css')
