@@ -46,22 +46,14 @@ We add a prefix to all the raw strings that are found inside className, so every
 
 For example, this works with scopify-tailwind:
 ```tsx
-function MyComponent() {
-    return <div className={isHidden ? 'hidden' : `${isFlex ? 'flex' : 'block'}`}>
-        Hello
-    </div>
-}
+<div className={isHidden ? 'hidden' : `${isFlex ? 'flex' : 'block'}`}>
 ```
 
 But the following WILL NOT work:
 
 ```tsx
-function MyComponent() {
-    const the_styles_to_add = 'my-5 py-5 mt-2 bg-red-500'
-    return <div className={the_styles_to_add}>
-        Hello
-    </div>
-}
+const the_styles_to_add = 'my-5 py-5 mt-2 bg-red-500'
+<div className={the_styles_to_add}>
 ```
 
 We typically don't have complex className logic in our projects, and can fit everything into `className=` tags, so this works for us.
