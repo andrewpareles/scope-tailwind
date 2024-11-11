@@ -14,10 +14,10 @@ async function main() {
 
     program
         .name('scopify-tailwind')
-        .argument('<src>', 'Source directory containing React/TSX files')
-        .option('-n, --src2 <src2>', 'Name of intermediary folder that will be created', './src2')
+        .argument('<src>', 'The source directory containing React/tsx files')
+        .option('-o, --src2 <src2>', 'Name of output folder that will be created', './src2')
         .option('-c, --css <css>', 'Path to CSS file relative to src2 folder, e.g. styles.css', 'styles.css')
-        .option('-p, --prefix <prefix>', 'The tailwind prefix to add e.g. "glasstw-"', 'glasstw-')
+        .option('-p, --prefix <prefix>', 'The tailwind prefix to add e.g. "prefix-"', 'prefix-')
         .option('-s, --scope <scope>', 'The className you should use to indicate you want these styles to apply (default: "scope")', 'scope')
         .option('-g, --ignoreprefix <ignoreprefix>', 'If a class has this prefix, it won\'t be scoped. (default: "@@")', '@@')
         .action(async (src: string, options: any) => {
@@ -26,9 +26,9 @@ async function main() {
                 const {
                     src2,
                     css: cssRelToSrc2,
-                    prefix: TW_PREFIX, //'glasstw-'; // adds this prefix to all the classNames inside a className= tag
+                    prefix: TW_PREFIX, //'prefix-'; // adds this prefix to all the classNames inside a className= tag
                     scope: scopeName, // const scopeName = 'scope' // the className used in the root that this will be scoped to
-                    ignoreprefix: TW_PREFIX_IGNORE, // const ignorePrefix = '@@' // if you have className="@@scope", it will turn into className="scope", not className="glasstw-scope"
+                    ignoreprefix: TW_PREFIX_IGNORE, // const ignorePrefix = '@@' // if you have className="@@scope", it will turn into className="scope", not className="prefix-scope"
                 } = options
 
                 console.log(`⏳ Prefixifying classNames... \n${src}  -->  ${src2}`);

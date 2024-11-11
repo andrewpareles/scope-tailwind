@@ -15,7 +15,11 @@ export async function scopify(src2: string, cssPathFromSrc2: string, scopeName: 
     const fullCssPath = path.join(src2, cssPathFromSrc2)
 
     let content = (await util.promisify(exec)(`tailwindcss -i ${fullCssPath} --prefix "${TW_PREFIX}"`)).stdout
-    content = `.${scopeName} {\n${content}\n}`;
+
+    // only scopify if the scope exists (it's not '')
+    if (scopeName)
+        content = `.${scopeName} {\n${content}\n}`;
+
     content = postcss([autoprefixer, postcssNested]).process(content, { from: undefined }).css;
 
     fs.writeFileSync(fullCssPath, content);

@@ -22,17 +22,18 @@ let MyComponent = () => {
 ```
 
 
-## Using
-To run, use:
+## Using Scopify-Tailwind
+To run the tool, use `scopify-tailwind`. The source file is the only required parameter. Here are all the options:
 
 ```
-scopify-tailwind ./src  # source to scopify is first arg
--n ./src2               # intermediate folder that will be created
+scopify-tailwind ./src  # (required) the source folder with jsx/tsx files to scopify 
 -p "prefix-"            # prefix to use (this prevents styles from leaking out)
--s "scope"              # className in which prefixed styles will be applied (this prevents styles from leaking in) 
--g "@@"                 # if a class has this prefix, it won't be prefixed. By default, to start using the styles, use className="@@scope".
+-g "@@"                 # if a class starts with this, it won't be prefixed. For example, "@@myclass" will be converted to "myclass", not "prefix-myclass"
+-o ./src2               # name of the output folder that will be created
+-s ""                   # If this is included, styles will only work inside an HTMLElement with this className. Defaults to nothing. 
 ```
 
+If you want to understand what's going on behind the scenes, feel free to open up src2/.
 
 ## Caveats
 We add a prefix to all raw strings found *inside* className. 
@@ -69,7 +70,7 @@ Here's what goes on behind the scenes.
 
 1. First, we prefixify:
 ```
-src                                     src2
+src                                                src2
 className="h-3 my-2 @@myclass"       -->           className="prefix-h-3 prefix-my-2 myclass"
 ```
 
@@ -85,4 +86,6 @@ src2/styles.css                   src2/styles.css                     src2/style
 
 ## Building
 
-If you make any changes to scopify-tailwind as a contributor, just run `npm run build`.
+If you make any changes to this repo as a contributor, just run `npm run build` to re-compile the build.
+
+To test your changes, the easiest thing to do is run `npm link`, which installs the project globally as if you installed it from npm. Run `npm run refreshlink` to refresh.
