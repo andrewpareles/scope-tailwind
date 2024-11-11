@@ -40,7 +40,7 @@ scope-tailwind ./src    # (required) the source folder with jsx/tsx files to sco
                         # className. This prevents Tailwind's global styles from leaking out
 
 -g "@@"                 # if a className starts with this string, it won't be prefixed. For 
-                        # example, "@@myclass" will become to "myclass", not "prefix-myclass"
+                        # example, "@@myclass" will become "myclass", not "prefix-myclass"
 ```
 
 
