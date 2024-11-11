@@ -23,7 +23,7 @@ let MyComponent = () => {
 
 
 ## Using Scopify-Tailwind
-To run the tool, use `scopify-tailwind`. The source file is the only required parameter. Here are all the options:
+To run the tool, run `scopify-tailwind` in the terminal. The source file is the only required parameter. Here are all the options:
 
 ```
 scopify-tailwind ./src  # (required) the source folder with jsx/tsx files to scopify 
