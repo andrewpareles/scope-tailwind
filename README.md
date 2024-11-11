@@ -84,6 +84,8 @@ src2/styles.css                   src2/styles.css                     src2/style
 ```
 
 
+We recommend running scope-tailwind to convert your src/ into src2/, and then using a tool like `tsup` to bundle your files.
+
 
 ## Building
 
