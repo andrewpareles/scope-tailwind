@@ -82,7 +82,6 @@ src2/styles.css                   src2/styles.css                     src2/style
 ## Building
 
 If you make any changes to this repo as a contributor, just run `npm run build` to re-compile the build.
-
 To test your changes, the easiest thing to do is run `npm link`, which installs the project globally as if you installed it from npm. Run `npm run refreshlink` to refresh.
 
 If you want to understand how the tool works, we recommend opening up src2/ and looking at the css file and the classNames of the new tsx files. If you have any questions or suggestions, feel free to reach out at support@voideditor.com.
