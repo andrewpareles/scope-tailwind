@@ -81,3 +81,8 @@ src2/styles.css                   src2/styles.css                     src2/style
 @tailwind base      -->           .h-3 { }              -->           .prefixh-3 { }
 ```
 
+
+
+## Building
+
+If you make any changes to scopify-tailwind as a contributor, just run `npm run build`.

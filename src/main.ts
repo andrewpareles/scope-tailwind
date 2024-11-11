@@ -12,8 +12,6 @@ async function main() {
 
     program
         .name('scopify-tailwind')
-        .description('CLI tool for scoping Tailwind CSS classes')
-        .version('1.0.0')
         .argument('<src>', 'Source directory containing React/TSX files', './src')
         .option('-n, --src2 <src2>', 'Name of intermediary folder that will be created', './src2')
         .option('-c, --css <css>', 'Path to CSS file relative to src2 folder, e.g. styles.css', 'styles.css')
