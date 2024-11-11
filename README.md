@@ -70,7 +70,7 @@ Here's what goes on behind the scenes.
 1. First, we prefixify:
 ```
 src                                     src2
-className="a b @@c"       -->           className="prefix-a prefix-b c"
+className="h-3 my-2 @@myclass"       -->           className="prefix-h-3 prefix-my-2 myclass"
 ```
 
 
@@ -78,7 +78,7 @@ className="a b @@c"       -->           className="prefix-a prefix-b c"
 2. Then, we scopify:
 ```
 src2/styles.css                   src2/styles.css                     src2/styles.css
-@tailwind base      -->           .h-3 { }              -->           .prefixh-3 { }
+@tailwind base      -->           .h-3 { }              -->           .prefix-h-3 { }
 ```
 
 

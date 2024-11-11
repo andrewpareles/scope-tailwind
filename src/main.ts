@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+// ^ this tells it to run with node apparently
 import { Command } from 'commander';
 
 import { prefixify } from './prefixify-babel';
