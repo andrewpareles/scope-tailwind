@@ -52,7 +52,7 @@ The prefix you specify here must agree with the prefix in `tailwind.config.js`.
 We only add prefixes to strings *inside* className, not outside.
 For example, this works with scope-tailwind:
 ```tsx
-<div className={isHidden ? 'hidden' : `my-2 ${isFlex ? 'flex gap-2' : 'block'}`}>
+<div className={isHidden ? 'hidden' : `my-2 px-3 ${isFlex ? 'flex flex-col gap-2' : 'block'}`}>
 ```
 
 But the following WILL NOT work:
