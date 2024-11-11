@@ -8,8 +8,6 @@ import * as t from "@babel/types";
 let _TW_PREFIX: string
 let _TW_PREFIX_IGNORE: string
 
-
-
 let prefixifyOneSelector = (s: string) => {
     if (s.startsWith(_TW_PREFIX_IGNORE)) {
         return s.substring(_TW_PREFIX_IGNORE.length,) // eg @@scope -> scope

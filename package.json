@@ -4,7 +4,8 @@
   "description": "Use scopify-tailwind to ensure none of your tailwind styles leak out of your tailwind classNames.",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf ./dist && tsc"
+    "build": "rimraf ./dist && tsc",
+    "refreshlink": "npm unlink -g scopify-tailwind && npm link"
   },
   "bin": {
     "scopify-tailwind": "./dist/main.js"

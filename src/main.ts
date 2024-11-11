@@ -25,22 +25,23 @@ async function main() {
                 console.log('OPTIONS', options)
                 const {
                     src2,
-                    css,
+                    css: cssRelToSrc2,
                     prefix: TW_PREFIX, //'glasstw-'; // adds this prefix to all the classNames inside a className= tag
-                    scope, // const scopeName = 'scope' // the className used in the root that this will be scoped to
+                    scope: scopeName, // const scopeName = 'scope' // the className used in the root that this will be scoped to
                     ignoreprefix: TW_PREFIX_IGNORE, // const ignorePrefix = '@@' // if you have className="@@scope", it will turn into className="scope", not className="glasstw-scope"
                 } = options
 
-                console.log(`Prefixifying classNames... \n${src}  -->  ${src2}`);
-                prefixify(src, src2, TW_PREFIX, TW_PREFIX_IGNORE);
-                console.log('✓ Successfully prefixified classNames');
+                console.log(`⏳ Prefixifying classNames... \n${src}  -->  ${src2}`);
+                await prefixify(src, src2, TW_PREFIX, TW_PREFIX_IGNORE);
+                console.log('✅ Successfully prefixified classNames');
 
-                const pathToCss = path.join(src2, css)
-                console.log(`Prefixifying css file... \n${pathToCss}  -->  ${pathToCss} (replace)`);
-                scopify(pathToCss, scope, TW_PREFIX)
-                console.log('✓ Successfully prefixified css file');
 
-                console.log('All done! 🎉');
+                const cssFullPath = path.join(src2, cssRelToSrc2)
+                console.log(`⏳ Prefixifying css file... \n${cssFullPath}  -->  ${cssFullPath} (replace)`);
+                await scopify(src2, cssRelToSrc2, scopeName, TW_PREFIX)
+                console.log('✅ Successfully prefixified css file');
+
+                console.log('✅✅✅ All done! 🎉');
             } catch (error) {
                 console.error('Error:', error);
                 process.exit(1);
