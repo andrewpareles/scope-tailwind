@@ -43,7 +43,7 @@ scope-tailwind ./src    # (required) the source folder with jsx/tsx files to sco
 ```
 
 
-You can disable scoping by adding the flag `-s ""`. If you don't disable it, you must create an element with the className "scope" in order for your styles to appear. 
+You can disable scoping by adding the flag `-s ""`. If you don't disable it, you must create an element with the className "scope" (or whatever is in `-s`) in order for your styles to appear. 
 
 The prefix you specify here must agree with the prefix in `tailwind.config.js`.
 
