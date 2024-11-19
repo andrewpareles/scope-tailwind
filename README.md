@@ -3,7 +3,7 @@
 
 This project allows you to prefix and scope your CSS files so there are no style leaks from Tailwind's CSS files. You can even use preflight without causing global style leaks. 
 
-Simply run `scope-tailwind` and we'll convert files like this:
+Simply run `scope-tailwind` and we'll convert your files, which look something like this:
 
 ```tsx
 function MyComponent() {
@@ -13,7 +13,7 @@ function MyComponent() {
 }
 ```
 
-Into files like this:
+Into files that look like this:
 
 ```tsx
 function MyComponent() {
@@ -23,7 +23,9 @@ function MyComponent() {
 }
 ```
 
+We also build your Tailwind file (the one that has `@tailwind base`, etc) so that everything has the same prefixes. This lets you avoid having to manually prefix all your classNames when using Tailwind. 
 
+We don't just prefix your classNames - we also make Tailwind only apply to elements inside a special className (details below). This means Tailwind is truly scoped, and not even global styles leak out. 
 
 ## Using Scope-Tailwind
 
