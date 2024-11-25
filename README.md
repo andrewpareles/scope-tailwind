@@ -23,9 +23,7 @@ function MyComponent() {
 }
 ```
 
-We also build your Tailwind file (the one that has `@tailwind base`, etc) so that everything has the same prefixes. This lets you avoid having to manually prefix all your classNames when using Tailwind. 
-
-In addition to prefixing, we make Tailwind only apply to elements inside a special className (details below). This means Tailwind is truly scoped, and not even global styles leak out. 
+We build your Tailwind file too, so everything has the same prefix. In addition, we only apply Tailwind to elements inside a special className (details below) so Tailwind is truly scoped, and not even global styles leak out. 
 
 ## Using Scope-Tailwind
 
