@@ -16,7 +16,11 @@ let prefixifyOneSelector = (s: string) => {
     let lastColon = s.lastIndexOf(':')
     let selector = s.substring(0, lastColon + 1) // eg hover:
     let className = s.substring(lastColon + 1,) // eg mx-5
-    return `${selector}${_TW_PREFIX}${className}`
+
+    let isNegative = className.substring(0, 1) === '-' // eg -pr-5
+    let positiveClassName = isNegative ? className.substring(1,) : className
+
+    return `${selector}${isNegative ? '-' : ''}${_TW_PREFIX}${positiveClassName}`
 }
 
 // transforms strings, template literals, conditionals, etc
