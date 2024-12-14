@@ -34,7 +34,7 @@ scope-tailwind ./src    # (required) the source folder with jsx/tsx files to sco
 
 -o ./src2               # the output directory that will be created
 
--p "prefix-"            # prefix to use (this prevents styles from leaking out)
+-p "prefix-"            # prefix to use (this prevents styles from colliding)
 
 -s "scope"              # your styles will only apply if they're in an element with this 
                         # className. This prevents Tailwind's global styles from leaking out
