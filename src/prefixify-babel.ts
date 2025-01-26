@@ -17,10 +17,13 @@ let prefixifyOneSelector = (s: string) => {
     let selector = s.substring(0, lastColon + 1) // eg hover:
     let className = s.substring(lastColon + 1,) // eg mx-5
 
-    let isNegative = className.substring(0, 1) === '-' // eg -pr-5
-    let positiveClassName = isNegative ? className.substring(1,) : className
+    let isImportant = className.substring(0, 1) === '!' // eg !bg-red-500, !-pr-5
+    if (isImportant) className = className.substring(1,)
 
-    return `${selector}${isNegative ? '-' : ''}${_TW_PREFIX}${positiveClassName}`
+    let isNegative = className.substring(0, 1) === '-' // eg -pr-5
+    if (isNegative) className = className.substring(1,)
+
+    return `${selector}${isNegative ? '-' : ''}${isImportant ? '!' : ''}${_TW_PREFIX}${className}`
 }
 
 // transforms strings, template literals, conditionals, etc
