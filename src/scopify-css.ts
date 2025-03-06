@@ -18,8 +18,8 @@ export async function scopify(src2: string, cssPathFromSrc2: string, scopeName: 
 
     // only scopify if the scope exists (it's not '')
     if (scopeName) {
+        content = content.replaceAll(':root', '&')
         content = `.${scopeName} {\n${content}\n}`;
-        content.replace(':root', '&')
     }
 
     content = postcss([autoprefixer, postcssNested]).process(content, { from: undefined }).css;
