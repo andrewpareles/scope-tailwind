@@ -17,8 +17,10 @@ export async function scopify(src2: string, cssPathFromSrc2: string, scopeName: 
     let content = (await util.promisify(exec)(`tailwindcss -i ${fullCssPath} --prefix "${TW_PREFIX}"`)).stdout
 
     // only scopify if the scope exists (it's not '')
-    if (scopeName)
+    if (scopeName) {
         content = `.${scopeName} {\n${content}\n}`;
+        content.replace(':root', '&')
+    }
 
     content = postcss([autoprefixer, postcssNested]).process(content, { from: undefined }).css;
 
