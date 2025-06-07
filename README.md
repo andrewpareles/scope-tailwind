@@ -1,5 +1,5 @@
 # Scope-Tailwind
-This project is designed for cases where you want to drop-in Tailwind into a part of your project without messing up the other styles. 
+This project is designed for cases where you want to drop Tailwind into a part of your project without messing up the other styles. 
 
 **We prevent Tailwind style leaks out of your Tailwind**. Our generated CSS files only apply *inside* your desired elements. You can even use preflight without causing any global style leaks. 
 
