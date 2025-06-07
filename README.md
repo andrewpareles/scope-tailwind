@@ -1,9 +1,9 @@
 # Scope-Tailwind
 This project is designed for cases where you want to drop Tailwind into a part of your project without messing up the other styles. 
 
-**We prevent Tailwind style leaks out of your Tailwind**. Our generated CSS files only apply *inside* your desired elements, and you can even use preflight without causing any global style leaks. 
+**We prevent your Tailwind styles from leaking out**. Our generated CSS files only apply *inside* your desired elements, and you can even use preflight without causing any global style leaks. 
 
-**We prevent global style leaks into your Tailwind**. We auto-prefix classNames inside of your desired elements so global classNames won't leak in. You don't have to write "prefix-" in front of every class, this is automatic!
+**We prevent your global styles from leaking in**. We auto-prefix classNames inside of your desired elements so global classNames won't leak in. You don't have to write "prefix-" in front of every class, this is automatic!
 
 
 ## Using Scope-Tailwind
