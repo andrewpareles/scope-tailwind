@@ -26,7 +26,7 @@ The prefix you specify must agree with the prefix in `tailwind.config.js`.
 
 
 ## Example
-Run `scope-tailwind` and we'll convert your files which look like this:
+Run `scope-tailwind` and we'll convert your TSX/JSX files which look like this:
 
 ```tsx
 function MyComponent() {
@@ -46,6 +46,21 @@ function MyComponent() {
 }
 ```
 
+And we'll convert your CSS files that look like this:
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+Into files that look like this:
+```css
+.scope *, .scope ::before, .scope ::after {
+  --tw-border-spacing-x: 0;
+  /* ... other generated TW styles, now scoped to "scope" className ... */
+}
+```
 
 ## Caveats
 If you have complex className logic with a lot of variables, scope-tailwind is not a good fit right now, because we only add prefixes to strings *inside* `className=...`, not outside. 
